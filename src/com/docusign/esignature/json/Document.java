@@ -17,14 +17,18 @@
  
 package com.docusign.esignature.json;
 
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -43,6 +47,7 @@ public class Document {
     private String documentId;
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
     private String contentType;
+    private InputStream documentInputStream;
 
     public String getContentType() {
 		return contentType;
@@ -106,5 +111,13 @@ public class Document {
     public void setAdditionalProperties(String name, Object value) {
         this.additionalProperties.put(name, value);
     }
+
+	public InputStream getDocumentInputStream() {
+		return documentInputStream;
+	}
+
+	public void setDocumentInputStream(InputStream documentInputStream) {
+		this.documentInputStream = documentInputStream;
+	}
 
 }
